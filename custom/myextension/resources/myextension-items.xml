@@ -8,12 +8,6 @@
     <itemtypes>
         <itemtype code="User" generate="false" autocreate="false">
             <attributes>
-				<attribute qualifier="name" type="java.lang.String">
-					<description>Initial String Field</description>
-					<persistence type="property"/>
-					<modifiers read="true" write="true" search="true" optional="true"/>
-				</attribute>
-
                 <attribute qualifier="age" type="java.lang.Integer">
                     <defaultvalue>0</defaultvalue>
                     <description>Initial Integer Field</description>
