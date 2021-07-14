@@ -46,4 +46,11 @@
         <property name="typeCode" value="User"/>
     </bean>
 
+    <bean id="myEvent" class="training.my.listener.MyEvent"/>
+
+    <bean id="myEventListener" class="training.my.listener.MyEventListener" parent="abstractEventListener"/>
+
+    <alias name="myCartService" alias="myCartService"/>
+    <bean id="myCartService" class="training.my.listener.MyCartService" parent="defaultCartService"/>
+    
 </beans>
