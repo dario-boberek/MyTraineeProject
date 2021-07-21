@@ -3,13 +3,10 @@
  Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/aop
-           http://www.springframework.org/schema/aop/spring-aop.xsd">
-	
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean id="myextensionSystemSetup" class="training.my.setup.MyextensionSystemSetup">
         <!-- constructor arg injection example -->
         <constructor-arg ref="myextensionService"/>
@@ -22,11 +19,11 @@
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
 
-<!--///////////////////////////////////////////////////////////-->
+    <!--///////////////////////////////////////////////////////////-->
 
     <bean id="myPopulator" class="training.my.populator.MyPopulator"/>
 
-    <bean id="myConverter"  parent="abstractPopulatingConverter">
+    <bean id="myConverter" parent="abstractPopulatingConverter">
         <property name="targetClass" value="training.my.mycommercefacade.product.data.ProductData"/>
         <property name="populators">
             <list>
@@ -40,5 +37,20 @@
         <property name="myProductDataConverter" ref="myConverter"/>
         <property name="myProductService" ref="productService"/>
     </bean>
-			
+
+    <bean id="myValidateInterceptor" class="training.my.interceptor.MyValidateInterceptor"/>
+
+    <bean id="myValidateInterceptorMapping"
+          class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="myValidateInterceptor"/>
+        <property name="typeCode" value="User"/>
+    </bean>
+
+    <bean id="myEvent" class="training.my.listener.MyEvent"/>
+
+    <bean id="myEventListener" class="training.my.listener.MyEventListener" parent="abstractEventListener"/>
+
+    <alias name="myCartService" alias="myCartService"/>
+    <bean id="myCartService" class="training.my.listener.MyCartService" parent="defaultCartService"/>
+    
 </beans>
