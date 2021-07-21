@@ -39,5 +39,13 @@
                 </attribute>
             </attributes>
         </itemtype>
+
+        <itemtype generate="true"
+                  code="CurrentNumberOfOrdersCronJob"
+                  jaloclass="de.hybris.cronjobtutorial.jalo.CurrentNumberOfOrdersCronJob"
+                  extends="CronJob"
+                  autocreate="true">
+        </itemtype>
+
     </itemtypes>
 </items>

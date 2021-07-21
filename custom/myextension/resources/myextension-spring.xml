@@ -21,6 +21,10 @@
 
     <!--///////////////////////////////////////////////////////////-->
 
+    <bean id="myOrderService" class="training.my.service.impl.MyOrderServiceImpl"/>
+
+    <bean id="myUserService" class="training.my.service.impl.MyUserServiceImpl"/>
+
     <bean id="myPopulator" class="training.my.populator.MyPopulator"/>
 
     <bean id="myConverter" parent="abstractPopulatingConverter">
@@ -52,5 +56,8 @@
 
     <alias name="myCartService" alias="myCartService"/>
     <bean id="myCartService" class="training.my.listener.MyCartService" parent="defaultCartService"/>
+
+<!--    <alias name="currentNumberOfOrdersCronJob" alias="currentNumberOfOrdersCronJob"/>-->
+    <bean id="currentNumberOfOrdersJob" class="training.my.cronjobs.CurrentNumberOfOrdersJob" parent="abstractJobPerformable"/>
     
 </beans>
