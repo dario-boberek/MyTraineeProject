@@ -47,5 +47,12 @@
                   autocreate="true">
         </itemtype>
 
+        <itemtype generate="true"
+                  code="CurrentNumberOfUsersCronJob"
+                  jaloclass="de.hybris.cronjobtutorial.jalo.CurrentNumberOfUsersCronJob"
+                  extends="CronJob"
+                  autocreate="true">
+        </itemtype>
+
     </itemtypes>
 </items>

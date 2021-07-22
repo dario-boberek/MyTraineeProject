@@ -6,5 +6,28 @@ INSERT_UPDATE ServicelayerJob; code[unique = true]      ; springId
 INSERT_UPDATE CurrentNumberOfOrdersCronJob; code[unique = true]          ; job(code)                ; sessionLanguage(isocode)[default = en];
                                           ; currentNumberOfOrdersCronJob ; currentNumberOfOrdersJob ;
 
-INSERT_UPDATE Trigger; cronJob(code)[unique = true] ;cronExpression
-                     ; currentNumberOfOrdersCronJob ;0 0/2 * * * ? *
+INSERT_UPDATE Trigger; cronJob(code)[unique = true] ; cronExpression
+                     ; currentNumberOfOrdersCronJob ; 0 0/1 * * * ? *
+
+##############################################################################
+
+INSERT_UPDATE ServicelayerJob; code[unique = true]     ; springId
+                             ; currentNumberOfUsersJob ; currentNumberOfUsersJob
+
+INSERT_UPDATE CurrentNumberOfUsersCronJob; code[unique = true]         ; job(code)               ; sessionLanguage(isocode)[default = en];
+                                         ; currentNumberOfUsersCronJob ; currentNumberOfUsersJob ;
+
+INSERT_UPDATE Trigger; cronJob(code)[unique = true]; cronExpression
+                     ; currentNumberOfUsersCronJob ; 0 0/1 * * * ? *
+
+###############################################################################
+
+INSERT_UPDATE CompositeEntry; code[unique = true]               ; executableCronJob(code)
+                            ; currentNumberOfOrdersCronJobEntry ; currentNumberOfOrdersCronJob
+                            ; currentNumberOfUsersCronJobEntry  ; currentNumberOfUsersCronJob
+
+INSERT_UPDATE CompositeCronJob; code[unique = true]   ; job(code)               ; compositeEntries(code); sessionUser(uid)[default = admin]; sessionLanguage(isocode)[default = en]
+                              ; helloCompositeCronJob ; compositeJobPerformable ; currentNumberOfOrdersCronJobEntry, currentNumberOfUsersCronJobEntry
+
+INSERT_UPDATE Trigger; cronJob(code)[unique = true]; cronExpression
+                     ; helloCompositeCronJob       ; 0/20 * * * * ? *

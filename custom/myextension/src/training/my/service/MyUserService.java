@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MyUserService {
     List<UserModel> getUserWithMostOrders();
+    int getCurrentNumberOfUsers();
 }

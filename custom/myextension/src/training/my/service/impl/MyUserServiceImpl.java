@@ -20,4 +20,11 @@ public class MyUserServiceImpl implements MyUserService {
         final SearchResult<UserModel> result = flexibleSearchService.search(query);
         return result.getResult();
     }
+
+    @Override
+    public int getCurrentNumberOfUsers() {
+        final String query = "SELECT {pk} FROM {user}";
+        final SearchResult<UserModel> result = flexibleSearchService.search(query);
+        return result.getCount();
+    }
 }

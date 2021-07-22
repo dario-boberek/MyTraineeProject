@@ -59,5 +59,6 @@
 
 <!--    <alias name="currentNumberOfOrdersCronJob" alias="currentNumberOfOrdersCronJob"/>-->
     <bean id="currentNumberOfOrdersJob" class="training.my.cronjobs.CurrentNumberOfOrdersJob" parent="abstractJobPerformable"/>
-    
+    <bean id="currentNumberOfUsersJob" class="training.my.cronjobs.CurrentNumberOfUsersJob" parent="abstractJobPerformable"/>
+
 </beans>
