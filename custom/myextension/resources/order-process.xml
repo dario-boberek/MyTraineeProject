@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://www.hybris.de/xsd/processdefinition" name="order-process" start="addToCartRegistrar"
+    processClass="de.hybris.platform.orderprocessing.model.OrderProcessModel">
+
+    <action id="addToCartRegistrar" bean="addToCartRegistrar">
+        <transition name="OK" to="waitForOrder"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <wait id="waitForOrder" then="nothingChosenRegistrar" prependProcessCode="false">
+        <case event="eventWithChoice">
+            <choice id="remove_order" then="removedOrderRegistrar"/>
+            <choice id="place_order" then="placedOrderRegistrar"/>
+        </case>
+    </wait>
+
+    <action id="removedOrderRegistrar" bean="removedOrderRegistrar">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="placedOrderRegistrar" bean="placedOrderRegistrar">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="nothingChosenRegistrar" bean="nothingChosenRegistrar">
+        <transition name="OK" to="waitForOrder"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <end id="error" state="ERROR">All went wrong.</end>
+    <end id="failed" state="FAILED">Order isn't placed.</end>
+    <end id="success" state="SUCCEEDED">Order is placed.</end>
+
+</process>

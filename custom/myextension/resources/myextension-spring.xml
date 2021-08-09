@@ -57,8 +57,21 @@
     <alias name="myCartService" alias="myCartService"/>
     <bean id="myCartService" class="training.my.listener.MyCartService" parent="defaultCartService"/>
 
-<!--    <alias name="currentNumberOfOrdersCronJob" alias="currentNumberOfOrdersCronJob"/>-->
-    <bean id="currentNumberOfOrdersJob" class="training.my.cronjobs.CurrentNumberOfOrdersJob" parent="abstractJobPerformable"/>
-    <bean id="currentNumberOfUsersJob" class="training.my.cronjobs.CurrentNumberOfUsersJob" parent="abstractJobPerformable"/>
+    <bean id="currentNumberOfOrdersJob" class="training.my.cronjobs.CurrentNumberOfOrdersJob"
+          parent="abstractJobPerformable"/>
 
+    <bean id="currentNumberOfUsersJob" class="training.my.cronjobs.CurrentNumberOfUsersJob"
+          parent="abstractJobPerformable"/>
+
+    <!---->
+    <bean id="orderProcessDefinitionResource"
+          class="de.hybris.platform.processengine.definition.ProcessDefinitionResource">
+        <property name="resource" value="classpath:order-process.xml"/>
+    </bean>
+
+    <bean id="addToCartRegistrar" class="training.my.action.AddToCartRegistrar" parent="abstractAction"/>
+    <bean id="placedOrderRegistrar" class="training.my.action.PlacedOrderRegistrar" parent="abstractAction"/>
+    <bean id="removedOrderRegistrar" class="training.my.action.RemovedOrderRegistrar" parent="abstractAction"/>
+    <bean id="nothingChosenRegistrar" class="training.my.action.NothingChosenRegistrar" parent="abstractAction"/>
+    <bean id="myCartServiceForBusinessProcess" class="training.my.service.MyCartServiceForBusinessProcess"/>
 </beans>
