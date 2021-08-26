@@ -19,7 +19,6 @@ public class MyCartService extends DefaultCartService {
     @Override
     public void addToCart(final CartModel cartModel, final ProductModel productModel, final long quantity,
                           final UnitModel unitModel) {
-        modelService.save(cartModel);
         eventService.publishEvent(new MyEvent());
     }
 }

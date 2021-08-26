@@ -1,0 +1,2 @@
+INSERT_UPDATE CheckAgeConstraint; id[unique = true]    ; severity(code, itemtype(code)); active; descriptor(enclosingType(code), qualifier); value; qualifier; target[allownull = true]                     ; type(code); annotation
+                                ; MyCheckAgeConstraint ; ERROR:Severity                ; true  ; User:age                                  ; 21   ; age      ; de.hybris.platform.core.model.user.UserModel ; User      ; training.my.validator.CheckAge

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved
+-->
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+	id="training.my.widgets.advancedBackofficeCustomizationwidget">
+	<name>advancedBackofficeCustomization Sample Widget</name>
+	<description>advancedBackofficeCustomization Sample Widget</description>
+	<defaultTitle>advancedBackofficeCustomization Sample Widget</defaultTitle>
+	<author>Extgen</author>
+	<version>1.0</version>
+	<view src="advancedBackofficeCustomizationwidget.zul" />
+	<keywords>
+		<keyword>advancedBackofficeCustomization</keyword>
+	</keywords>
+	<controller class="training.my.widgets.AdvancedBackofficeCustomizationController" />
+</widget-definition>

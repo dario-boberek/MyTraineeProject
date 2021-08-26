@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved
+-->
+<config xmlns="http://www.hybris.com/cockpit/config">
+
+	<!-- advancedBackofficeCustomization UI configuration should be provided here -->
+
+	<!--<context component="component-code" module="advancedBackofficeCustomization">-->
+		<!--Please check documentation for code snippets for specific components-->
+	<!--</context>-->
+
+	<context component="explorer-tree" merge-by="module">
+		<n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+			<n:navigation-node id="MyNewTab">
+				<n:type-node id="Driver" code="Driver" />
+				<n:type-node id="Car" code="Car" />
+			</n:navigation-node>
+		</n:explorer-tree>
+	</context>
+		<context type="Driver" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="name"/>
+			<list:column qualifier="dateOfBirth"/>
+			<list:column qualifier="cars"/>
+		</list:list-view>
+	</context>
+	<context type="Car" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="name"/>
+			<list:column qualifier="year"/>
+			<list:column qualifier="color"/>
+			<list:column qualifier="drivers"/>
+		</list:list-view>
+	</context>
+
+	<context type="Driver" component="simple-search">
+		<simple-search:simple-search xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch">
+			<simple-search:field name="name"/>
+		</simple-search:simple-search>
+	</context>
+
+	<context type="Car" component="simple-search">
+		<simple-search:simple-search xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch">
+			<simple-search:field name="color"/>
+		</simple-search:simple-search>
+	</context>
+
+</config>
