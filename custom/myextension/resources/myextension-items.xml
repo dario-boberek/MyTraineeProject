@@ -30,5 +30,23 @@
                   generate="true"
                   autocreate="true">
         </itemtype>
+
+        <itemtype code="CheckAgeConstraint" autocreate="true" generate="true" extends="AttributeConstraint"
+                  jaloclass="training.my.validator.CheckAgeConstraint"
+                  singleton="false" jaloonly="false">
+            <description>Custom constraint which checks if age less than 21 years old.</description>
+            <attributes>
+                <attribute qualifier="annotation" type="java.lang.Class" redeclare="true" generate="true" autocreate="true">
+                    <persistence type="property" qualifier=""/>
+                    <modifiers read="true" write="true" search="true" encrypted="false" removable="true" initial="true" optional="true" unique="true"/>
+                    <defaultvalue>training.my.validator.CheckAge.class</defaultvalue>
+                </attribute>
+
+                <attribute generate="true" autocreate="true" qualifier="value" type="java.lang.Long">
+                    <persistence type="property" qualifier=""/>
+                    <modifiers read="true" write="true" search="true" encrypted="false" optional="false" removable="true" initial="true" unique="false" private="false" partof="false"/>
+                </attribute>
+            </attributes>
+        </itemtype>
     </itemtypes>
 </items>

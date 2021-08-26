@@ -74,4 +74,5 @@
     <bean id="removedOrderRegistrar" class="training.my.action.RemovedOrderRegistrar" parent="abstractAction"/>
     <bean id="nothingChosenRegistrar" class="training.my.action.NothingChosenRegistrar" parent="abstractAction"/>
     <bean id="myCartServiceForBusinessProcess" class="training.my.service.MyCartServiceForBusinessProcess"/>
+
 </beans>
