@@ -75,4 +75,6 @@
     <bean id="nothingChosenRegistrar" class="training.my.action.NothingChosenRegistrar" parent="abstractAction"/>
     <bean id="myCartServiceForBusinessProcess" class="training.my.service.MyCartServiceForBusinessProcess"/>
 
+    <bean id="myTransaction" class="training.my.transaction.MyTransaction"/>
+
 </beans>
