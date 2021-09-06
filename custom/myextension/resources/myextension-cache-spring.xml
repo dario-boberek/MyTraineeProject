@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <alias name="defaultEntityCacheRegion" alias="entityCacheRegion"/>
+    <bean name="defaultEntityCacheRegion" class="de.hybris.platform.regioncache.region.impl.DefaultCacheRegion" lazy-init="true">
+        <constructor-arg name="name" value="entityCacheRegion" />
+        <constructor-arg name="maxEntries" value="70000" />
+        <constructor-arg name="evictionPolicy" value="LFU" />
+        <constructor-arg name="statsEnabled" value="true" />
+        <constructor-arg name="exclusiveComputation" value="true" />
+        <property name="handledTypes">
+            <array>
+                <value>__ALL_TYPES__</value>
+                <value>__NO_QUERY__</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="entityCacheRegionRegistrar" class="de.hybris.platform.regioncache.region.CacheRegionRegistrar">
+        <constructor-arg ref="entityCacheRegion"/>
+    </bean>
+
+    <alias name="defaultProductCacheRegion" alias="productCacheRegion"/>
+    <bean name="defaultProductCacheRegion" class="de.hybris.platform.regioncache.region.impl.EHCacheRegion" lazy-init="true">
+        <constructor-arg name="name" value="productCacheRegion" />
+        <constructor-arg name="maxEntries" value="30000" />
+        <constructor-arg name="evictionPolicy" value="LRU" />
+        <constructor-arg name="statsEnabled" value="true" />
+        <constructor-arg name="exclusiveComputation" value="true" />
+        <property name="handledTypes">
+            <array>
+                <value>1</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="productCacheRegionRegistrar" class="de.hybris.platform.regioncache.region.CacheRegionRegistrar">
+        <constructor-arg ref="productCacheRegion"/>
+    </bean>
+</beans>
